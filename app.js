@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
+const favicon = require('serve-favicon')
+const path = require('path')
 
 const app = express()
 
@@ -25,6 +27,9 @@ mongoose
 // EJS middleware
 app.use(expressLayouts) 
 app.set('view engine', 'ejs') 
+
+// Favicon
+app.use(favicon(__dirname + '/public/logos/favicon.ico'))
 
 // Bodyparser
 app.use(express.urlencoded({ extended: false}))
